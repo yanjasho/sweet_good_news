@@ -1,0 +1,33 @@
+<div class="jumbotron container-fluid" id="background"> 
+
+  <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/savedarticles">Saved articles</a>
+  </nav>
+
+  <div id="header" class="row justify-content-md-center">
+      <h1>Sweet Good News</h1>
+  </div>
+  
+  <div id="wrapper">
+    <div id="articles">
+      {{#each articles}}
+        {{#if saved}}
+          <h3>{{title}}</h3>
+          <a href={{link}}>Link</a>
+          <p>{{summary}}</p>
+          <p>{{note}}</p>
+          <button class="btn btn-warning delete" data-id="{{id}}"> Delete this article! </button>
+          <form>
+            <div class="form-group">
+              <label for="note">Leave some comment!</label>
+              <textarea class="form-control" id="note" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div> 
+
+</div>
