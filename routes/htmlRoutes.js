@@ -26,7 +26,9 @@ module.exports = function(app) {
     })
     .then(function(resp) {
       db.Article.find({})
+      .populate("note")
       .then(function(dbArticle) {
+        console.log(dbArticle)
         res.render("index", {articles: dbArticle});
       })
       .catch(function(err) {

@@ -15,17 +15,19 @@
             <h3>{{title}}</h3>
             <a href={{link}}>Link</a>
             <p>{{summary}}</p>
-            <p>{{note}}</p>
+            {{#each note}}
+              <p>Comment: {{body}}</p>
+            {{/each}}
             {{#if saved}}
               <p>This article is saved!</p>
             {{/if}}
             {{#unless saved}}
               <button class="btn btn-warning save" data-id="{{id}}"> Save this article! </button>
             {{/unless}}
-            <form>
+            <form class="comment" data-id="{{id}}">
               <div class="form-group">
                 <label for="note">Leave some comment!</label>
-                <textarea class="form-control" id="note" rows="3"></textarea>
+                <textarea class="form-control" class="body" rows="3"></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
