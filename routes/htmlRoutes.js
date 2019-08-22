@@ -28,7 +28,6 @@ module.exports = function(app) {
       db.Article.find({})
       .populate("note")
       .then(function(dbArticle) {
-        console.log(dbArticle)
         res.render("index", {articles: dbArticle});
       })
       .catch(function(err) {
@@ -39,8 +38,8 @@ module.exports = function(app) {
 
   app.get("/savedarticles", function(req, res) {
     db.Article.find({})
+    .populate("note")
     .then(function(dbArticle) {
-      console.log("Worling")
       res.render("savedarticles", {articles: dbArticle});
     })
     .catch(function(err) {

@@ -15,10 +15,10 @@ const ArticleSchema = new Schema({
   summary: {
     type: String
   },
-  note: {
+  note:[{
     type: Schema.Types.ObjectId,
     ref: "Note"
-  },
+  }],
   saved:{
     type: Boolean,
     default: false

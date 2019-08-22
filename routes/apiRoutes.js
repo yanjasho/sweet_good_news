@@ -21,4 +21,12 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
+  app.delete("/notes/:id", function(req, res) {
+    db.Note.deleteOne({ _id: req.params.id })
+    .then(function(dbNotes) {
+      res.json(dbNotes);
+    });
+  });
+
 };
